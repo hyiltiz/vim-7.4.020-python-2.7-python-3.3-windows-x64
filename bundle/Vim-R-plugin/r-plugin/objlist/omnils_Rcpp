@@ -1,0 +1,15 @@
+compileAttributesfunctionfunctionRcpppkgdir"."	verbosegetOption("verbose")
+cppFunctionfunctionfunctionRcppcode	dependscharacter()	pluginscharacter()	includescharacter()	envparent.frame()	rebuildFALSE	showOutput	verbosegetOption("verbose")
+evalCppfunctionfunctionRcppcode	dependscharacter()	includescharacter()	rebuildFALSE	showOutput	verbosegetOption("verbose")
+formals<-functionfunctionRcppfun	envirenvironment(fun)	value
+initializefunctionfunctionRcpp.Object	...
+loadModulefunctionfunctionRcppmodule	whatcharacter()	loadNow	envtopenv(parent.frame())
+loadRcppModulesfunctionfunctionRcppdirectTRUE
+ModulefunctionfunctionRcppmodule	PACKAGEmethods::getPackageName(where)	wheretopenv(parent.frame())	mustStartFALSE
+populatefunctionfunctionRcppmodule	env
+promptfunctionfunctionRcppobject	filenameNULL	nameNULL	...
+Rcpp.package.skeletonfunctionfunctionRcppname"anRpackage"	listcharacter()	environment	path"."	forceFALSE	namespaceTRUE	code_filescharacter()	cpp_filescharacter()	example_codeTRUE	attributesFALSE	moduleFALSE	author"Who wrote it"	maintainerif (missing(author)) "Who to complain to" else author	email"yourfault@somewhere.net"	license"What Licence is it under ?"
+registerPluginfunctionfunctionRcppname	plugin
+setRcppClassfunctionfunctionRcppClass	CppClass	module	fieldslist()	containscharacter()	methodslist()	saveAs	wheretopenv(parent.frame())	...
+showfunctionfunctionRcppobject
+sourceCppfunctionfunctionRcppfile""	codeNULL	envglobalenv()	rebuildFALSE	showOutput	verbosegetOption("verbose")

@@ -1,0 +1,31 @@
+"======================
+"====== supertab ======
+"======================
+let g:SuperTabDefaultCompletionType = "context"
+
+"=================
+"====== Ack ======
+"=================
+nmap <leader>a <Esc>:Ack!
+
+"======================
+"====== commandT ======
+"======================
+">>requires +ruby and to do the following
+">>statquant@euclide:~/.vim/bundle/command-t/ruby/command-t$ ruby extconf.rb 
+">>statquant@euclide:~/.vim/bundle/command-t/ruby/command-t$ make
+
+"======================
+"====== screen ========
+"======================
+">>To use tmux instead of screen this is usefull for R + vertical split is only available with Tmux
+let g:ScreenImpl = 'Tmux' " dans {'GnuScreen','Tmux'} 
+">>Vertical split supported via tmux by default
+let g:ScreenShellGnuScreenVerticalSupport = 'native'
+">>Non-zero and not already in a screen session, an external shell will be spawned
+let g:ScreenShellExternal = 1
+">>Set to 'shell' the newly created shell region will be focused
+let g:ScreenShellInitialFocus = 'vim'
+">>g:ScreenShellExternal==1 && this value will be used as the name of the terminal to be used
+let g:ScreenShellTerminal = 'gnome-terminal'
+

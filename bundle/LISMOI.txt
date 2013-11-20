@@ -1,0 +1,16 @@
+Here are the plugins I use and some notes about them
+
+|+Align/
+|+minibufexpl.vim/
+|+nerdcommenter/
+|+nerdtree/
+ #2013-09-30 seen and configured
+|+syntastic/
+ #2013-09-29 seen and configured
+|+ultisnips/
+ #2013-09-29
+|+vim-fugitive/
+|+Vim-R-plugin/
+|+vim-ycm-windows-x64/
+ #2013-09-29 seen and configured
+|+vundle/

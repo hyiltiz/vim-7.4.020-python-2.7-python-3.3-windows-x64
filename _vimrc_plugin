@@ -1,0 +1,160 @@
+"=============================
+"=========== CTRLP ===========
+"=============================
+">>Use this option to change the mapping to invoke CtrlP in |Normal| mode
+let g:ctrlp_map = '<c-p>'
+">>Set the default opening command to use when pressing the above mapping
+let g:ctrlp_cmd = 'CtrlPMixed'
+">>searching by filename (as opposed to full path)
+let g:ctrlp_by_filename = 0 "in {0,1}
+">>When opening a file, if it's already open in a window somewhere, CtrlP will try
+"  to jump to it instead of opening a new instance
+let g:ctrlp_switch_buffer = 'E'
+">>Set the directory to store the cache files
+let g:ctrlp_cache_dir = 'C:/Travail/Tools/vim-7.4.020-python-2.7-python-3.3-windows-x86/bundle/ctrlp.vim-master/cacheFiles'
+"Specify the number of recently opened files you want CtrlP to remember: >
+let g:ctrlp_mruf_max = 250
+"=============================
+"========= Airline ==========
+"=============================
+let g:airline_powerline_fonts = 1
+
+"=============================
+"====== YouCompleteMe ======
+"=============================
+let g:ycm_min_num_of_chars_for_completion = 2
+"This option controls for which Vim filetypes should the YCM semantic completion engine be turned off
+let g:ycm_filetype_specific_completion_to_disable = {}
+"When this option is set to '1', YCM will show the completion menu even when typing inside comments.
+let g:ycm_complete_in_comments = 0
+"When this option is set to '1', YCM will show the completion menu even when typing inside strings
+let g:ycm_complete_in_strings = 1
+"When this option is set to '1', YCM will add the 'preview' string to Vim's 'completeopt' option
+let g:ycm_add_preview_to_completeopt = 1
+"When this option is set to '1', YCM will auto-close the 'preview' window after the user accepts the offered completion string
+let g:ycm_autoclose_preview_window_after_completion = 1
+"When this option is set to '1', YCM will auto-close the 'preview' window after the user leaves insert mode
+let g:ycm_autoclose_preview_window_after_insertion = 1
+"This option specifies a fallback path to a config file which is used if no '.ycm_extra_conf.py' isfound.
+let g:ycm_global_ycm_extra_conf = 'C:/MyPgm/vim-7.4.020-python-2.7-python-3.3-windows-x64/bundle/vim-ycm-windows-x64/python/.ycm_extra_conf.py'
+
+let g:ycm_collect_identifiers_from_tags_files = 1
+"This option controls the key mappings used to select the previous completion string
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+"This option controls the key mappings used to select the previous completion string
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
+
+" UltiSnips completion function that tries to expand a snippet. If there's no
+" snippet for expanding, it checks for completion window and if it's
+" shown, selects first element. If there's no completion window it tries to
+" jump to next placeholder. If there's no placeholder it just returns TAB key 
+function! g:UltiSnips_Complete()
+    call UltiSnips_ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips_JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+
+"=============================
+"====== MiniBufExplorer ======
+"=============================
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
+"=============================
+"========= Syntastic =========
+"=============================
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+highlight SyntasticErrorSign guifg=white guibg=red
+highlight SyntasticErrorLine guibg=#2f0000
+"When set to 1 the error window will be automatically opened when errors are detected, and closed 
+"when none are detected
+let g:syntastic_auto_loc_list=0
+"Use this option to control what the syntastic statusline text contains. Several magic flags are 
+"available to insert information:
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+"======================
+"====== TagList =======
+"======================
+"let Tlist_Ctags_Cmd='/usr/bin/ctags'
+
+"======================
+"====== Task List =====
+"======================
+"map <LocalLeader>td <Plug>TaskList
+"map <LocalLeader>tp <Plug>TlistToggle
+
+"===================
+"====== Gundo ======
+"===================
+"map<LocalLeader>g :GundoToggle<CR>
+
+"==========================
+"====== vim-r-plugin ======
+"==========================
+">>The screen.vim plugin supports both GNU Screen and Tmux, but only Tmux allows you to split the 
+"  terminal vertical. SEE SCREEN PART OF VIMRC 
+"let g:ScreenImpl = 'Tmux'
+">>If both GNU Screen and Tmux are installed but you prefer to use the GNU Screen application
+let vimrplugin_tmux = 0
+let vimrplugin_r_path = "C:/MyPgm/R-3.0.1/bin/x64"
+let r_indent_comment_column = 2
+">>I CANT MAKE IT WORK THEN I MODIFIED common_globals.vim
+let vimrplugin_Rterm = 0
+"let vimrplugin_vimpager = "vertical"
+">>Disable automatic indentation
+let vimrplugin_indent_commented = 0
+">>The screen.vim plugin to split the terminal horizontally. If you prefer to split it vertically 
+"  put in your |vimrc|:
+"let vimrplugin_screenvsplit = 1
+">>The Vim-R-plugin will add <C-a><C-k> to every command if you put in your |vimrc|:
+let vimrplugin_ca_ck = 1
+">>To enable the syntax method of folding for R files
+let r_syntax_folding = 1
+">>Start editing files with all folds open
+set nofoldenable
+let vimrplugin_buildwait = 10
+">>The plugin calls the function .vim.list.args() after <LocalLeader>ra
+let vimrplugin_listmethods = 1
+">>Send line" and Send selection map to the space bar in your
+vmap <Space> <Plug>RDSendSelection
+nmap <Space> <Plug>RDSendLine
+
+"=======================
+"====== ShowMarks ======
+"=======================
+"This comes from suggestion in vim-r-plugin
+"let marksCloseWhenSelected = 0
+"let showmarks_include = "abcdefghijklmnopqrstuvwxyz"
+
+"======================
+"====== Ultisnips ======
+"======================
+set rtp+=$VIM\bundle\ultisnips\UltiSnips
+">>Defines how the edit window is opened
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+"======================
+"====== NERDTree ======
+"======================
+noremap <F1> :NERDTreeToggle<CR>
+">>Tell the NERD tree not to ignore any files
+let NERDTreeIgnore=[]
+

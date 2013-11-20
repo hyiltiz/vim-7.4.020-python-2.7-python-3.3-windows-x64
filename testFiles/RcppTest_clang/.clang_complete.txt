@@ -1,0 +1,2 @@
+-IRcpp/include
+-IRcpp/include/Rcpp
